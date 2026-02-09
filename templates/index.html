@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Price Prediction</title>
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Stock Price Prediction</h2>
+
+        <form action="/predict" method="post">
+            <label>Open Price</label>
+            <input type="text" name="open" required>
+
+            <label>High Price</label>
+            <input type="text" name="high" required>
+
+            <label>Low Price</label>
+            <input type="text" name="low" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
